@@ -1,0 +1,46 @@
+/* ----- LARGER.CSS - Styles for screens 640px and above (media query) ----- */
+
+@media (min-width: 640px) {
+    /* hide hamburger on large screens */
+    #hamburger {
+        display: none;
+    }
+
+    /* show navigation as horizontal flex */
+    #primary-nav {
+        display: flex !important;
+        width: auto;
+        margin-top: 0;
+    }
+    #primary-nav ul {
+        flex-direction: row;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    #primary-nav a {
+        display: inline-block;
+        width: auto;
+        padding: 0.5rem 0.25rem;
+    }
+}
+
+/* About section: two-column on larger screens (720px and up) */
+@media (min-width: 720px) {
+    #about {
+        grid-template-columns: 2fr 1fr;
+        align-items: center;
+    }
+    #about img {
+        max-width: 100%;
+    }
+}
+
+/* Additional spacing and polish for larger screens */
+@media (min-width: 1024px) {
+    body {
+        padding: 0 2.5rem;
+    }
+    .course-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
