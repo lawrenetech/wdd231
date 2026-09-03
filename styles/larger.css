@@ -26,12 +26,26 @@
 
 /* About section: two-column on larger screens (720px and up) */
 @media (min-width: 720px) {
-    #about {
+    .about-content {
         grid-template-columns: 2fr 1fr;
-        align-items: center;
+        align-items: start;
     }
     #about img {
         max-width: 100%;
+    }
+}
+
+/* Journey section: two columns on medium screens */
+@media (min-width: 640px) {
+    .journey-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Journey section: four columns on large screens */
+@media (min-width: 1024px) {
+    .journey-grid {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
