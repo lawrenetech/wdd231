@@ -1,6 +1,6 @@
 /* ----- SMALL.CSS - Mobile-first base styles ----- */
 
-/* ----- RESET & BASE ----- */
+/* Reset & Base */
 * {
     margin: 0;
     padding: 0;
@@ -23,12 +23,11 @@ img {
     display: block;
 }
 
-/* ----- COLOR VARIABLES ----- */
+/* Color Variables */
 :root {
     --primary: #1e3a5f;
     --primary-dark: #0b1a2e;
     --primary-light: #dbeafe;
-    --bg: #f8fafc;
     --bg-card: #fff;
     --bg-secondary: #f1f5f9;
     --bg-button: #eef2f6;
@@ -38,7 +37,7 @@ img {
     --accent: #94a3b8;
 }
 
-/* ----- HEADER ----- */
+/* Header */
 header {
     display: flex;
     align-items: center;
@@ -53,6 +52,7 @@ header {
     align-items: center;
     gap: 0.75rem;
 }
+
 .site-name {
     font-weight: 600;
     font-size: 1.2rem;
@@ -69,6 +69,7 @@ header {
     cursor: pointer;
     padding: 0.5rem;
 }
+
 #hamburger .bar {
     display: block;
     width: 28px;
@@ -84,15 +85,18 @@ header {
     width: 100%;
     margin-top: 0.75rem;
 }
+
 #primary-nav.open {
     display: block;
 }
+
 #primary-nav ul {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
+
 #primary-nav a {
     display: block;
     width: 100%;
@@ -103,15 +107,17 @@ header {
     border-bottom: 3px solid transparent;
     transition: border-color 0.2s, color 0.2s;
 }
+
 #primary-nav a:hover,
 #primary-nav a.active {
     border-bottom-color: var(--primary);
 }
+
 #primary-nav a.active {
     font-weight: 600;
 }
 
-/* ----- MAIN ----- */
+/* Main */
 main {
     padding: 2rem 0 3rem;
 }
@@ -133,7 +139,7 @@ h2 {
     border-left: 5px solid var(--primary);
 }
 
-/* ----- SECTIONS (shared styles) ----- */
+/* Sections */
 section {
     background: var(--bg-card);
     padding: 1.5rem;
@@ -149,9 +155,11 @@ section {
     gap: 1.5rem;
     align-items: start;
 }
+
 .about-content p {
     margin-bottom: 0.75rem;
 }
+
 .about-content img {
     border-radius: 10px;
     max-width: 360px;
@@ -165,6 +173,7 @@ section {
     flex-wrap: wrap;
     margin-bottom: 1.5rem;
 }
+
 .filter-buttons button {
     padding: 0.5rem 1.25rem;
     font-family: inherit;
@@ -177,10 +186,12 @@ section {
     cursor: pointer;
     transition: background 0.2s, transform 0.1s;
 }
+
 .filter-buttons button:hover {
     background: #dce3ec;
     transform: scale(0.97);
 }
+
 .filter-buttons button.active-filter {
     color: #fff;
     background: var(--primary);
@@ -204,10 +215,12 @@ section {
     border-left: 6px solid var(--accent);
     transition: box-shadow 0.2s;
 }
+
 .course-card.completed {
     background: var(--primary-light);
     border-left-color: var(--primary);
 }
+
 .course-card.completed::after {
     content: "✓";
     display: inline-flex;
@@ -221,6 +234,7 @@ section {
     background: var(--primary);
     border-radius: 50%;
 }
+
 .course-card .credits {
     display: block;
     margin-top: 0.3rem;
@@ -238,41 +252,7 @@ section {
     border-top: 1px solid var(--border);
 }
 
-/* Journey */
-.journey-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-}
-.journey-card {
-    padding: 1.25rem;
-    text-align: center;
-    background: var(--bg-secondary);
-    border-radius: 10px;
-    border-bottom: 4px solid var(--primary);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-.journey-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-}
-.journey-icon {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
-.journey-card h3 {
-    margin-bottom: 0.25rem;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--primary);
-}
-.journey-card p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: var(--text-secondary);
-}
-
-/* ----- FOOTER ----- */
+/* Footer */
 footer {
     padding: 2rem 0 1.5rem;
     margin-top: 3rem;
@@ -280,10 +260,12 @@ footer {
     color: var(--text-secondary);
     border-top: 2px solid var(--border);
 }
+
 footer p {
     margin: 0.25rem 0;
     font-size: 0.95rem;
 }
+
 #lastModified {
     font-size: 0.85rem;
 }
@@ -294,10 +276,12 @@ footer p {
     gap: 1.5rem;
     margin-bottom: 1rem;
 }
+
 .social-links a {
     color: var(--primary);
     transition: color 0.2s, transform 0.15s;
 }
+
 .social-links a:hover {
     color: var(--primary-dark);
     transform: translateY(-2px);

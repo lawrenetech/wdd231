@@ -10,38 +10,34 @@
         width: auto;
         margin-top: 0;
     }
+
     #primary-nav ul {
         flex-direction: row;
         gap: 1.5rem;
     }
+
     #primary-nav a {
         display: inline-block;
         width: auto;
         padding: 0.5rem 0.25rem;
     }
 
-    .journey-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (min-width: 720px) {
     .about-content {
         grid-template-columns: 2fr 1fr;
+        align-items: start;
     }
+
     .about-content img {
         max-width: 100%;
+    }
+
+    .course-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
 }
 
 @media (min-width: 1024px) {
     body {
         padding: 0 2.5rem;
-    }
-    .course-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
-    .journey-grid {
-        grid-template-columns: repeat(4, 1fr);
     }
 }
