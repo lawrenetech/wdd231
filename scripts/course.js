@@ -1,86 +1,92 @@
 // Course data array
 const courses = [
-    { code: 'WDD 130', name: 'Web Fundamentals', credits: 3, completed: true },
-    { code: 'WDD 131', name: 'Dynamic Web Fundamentals', credits: 3, completed: true },
-    { code: 'WDD 231', name: 'Web Frontend Development I', credits: 3, completed: false },
-    { code: 'CSE 110', name: 'Programming with Functions', credits: 3, completed: true },
-    { code: 'CSE 111', name: 'Programming with Functions', credits: 3, completed: false },
-    { code: 'CSE 210', name: 'Programming with Classes', credits: 3, completed: false },
+    { id: 'WDD 130', name: 'Web Fundamentals', credits: 3, category: 'WDD', completed: true },
+    { id: 'WDD 131', name: 'Dynamic Web Fundamentals', credits: 3, category: 'WDD', completed: true },
+    { id: 'WDD 231', name: 'Web Frontend Development I', credits: 3, category: 'WDD', completed: false },
+    { id: 'CSE 110', name: 'Programming Building Blocks', credits: 3, category: 'CSE', completed: true },
+    { id: 'CSE 111', name: 'Programming with Functions', credits: 3, category: 'CSE', completed: true },
+    { id: 'CSE 210', name: 'Programming with Classes', credits: 3, category: 'CSE', completed: false },
+    { id: 'WDD 132', name: 'Responsive Design', credits: 2, category: 'WDD', completed: false },
+    { id: 'CSE 212', name: 'Data Structures', credits: 3, category: 'CSE', completed: false }
 ];
 
-// DOM elements
-const courseCardsContainer = document.getElementById('course-cards');
-const totalCreditsElement = document.getElementById('total-credits');
-
-// Filter buttons
-const filterAll = document.getElementById('filter-all');
-const filterWdd = document.getElementById('filter-wdd');
-const filterCse = document.getElementById('filter-cse');
-
-// Current filter state
-let currentFilter = 'all';
+// Get the container for course cards
+const courseContainer = document.getElementById('course-cards');
+const totalCreditsDisplay = document.getElementById('total-credits');
 
 // Function to render courses based on filter
-function renderCourses(filter) {
-    let filteredCourses = [];
-
+function renderCourses(filter = 'all') {
+    // Filter courses based on category
+    let filteredCourses;
     if (filter === 'all') {
         filteredCourses = courses;
-    } else if (filter === 'wdd') {
-        filteredCourses = courses.filter(course => course.code.startsWith('WDD'));
-    } else if (filter === 'cse') {
-        filteredCourses = courses.filter(course => course.code.startsWith('CSE'));
+    } else {
+        filteredCourses = courses.filter(course => course.category === filter);
     }
 
-    // Clear container
-    courseCardsContainer.innerHTML = '';
+    // Clear the container
+    courseContainer.innerHTML = '';
 
-    // Build course cards
+    // Create and append course cards
     filteredCourses.forEach(course => {
         const card = document.createElement('div');
         card.className = 'course-card';
+        
+        // Add 'completed' class if course is completed
         if (course.completed) {
             card.classList.add('completed');
         }
+
+        // Create card content
         card.innerHTML = `
-            ${course.code}
+            <h3>${course.id}</h3>
+            <p>${course.name}</p>
             <span class="credits">${course.credits} credits</span>
+            ${course.completed ? '<span class="completed-badge">✓ Completed</span>' : ''}
         `;
-        courseCardsContainer.appendChild(card);
+
+        courseContainer.appendChild(card);
     });
 
-    // Calculate total credits using reduce
-    const totalCredits = filteredCourses.reduce((sum, course) => sum + course.credits, 0);
-    totalCreditsElement.textContent = `Total credits: ${totalCredits}`;
+    // Calculate total credits using reduce function
+    const totalCredits = filteredCourses.reduce((total, course) => {
+        return total + course.credits;
+    }, 0);
+
+    // Update total credits display
+    totalCreditsDisplay.textContent = `Total credits: ${totalCredits}`;
 }
 
-// Event listeners for filter buttons
-filterAll.addEventListener('click', () => {
-    currentFilter = 'all';
-    updateActiveButton(filterAll);
+// Set up filter buttons
+document.getElementById('filter-all').addEventListener('click', function() {
+    // Update active button state
+    document.querySelectorAll('.filter-buttons button').forEach(btn => {
+        btn.classList.remove('active-filter');
+    });
+    this.classList.add('active-filter');
+    
     renderCourses('all');
 });
 
-filterWdd.addEventListener('click', () => {
-    currentFilter = 'wdd';
-    updateActiveButton(filterWdd);
-    renderCourses('wdd');
+document.getElementById('filter-wdd').addEventListener('click', function() {
+    // Update active button state
+    document.querySelectorAll('.filter-buttons button').forEach(btn => {
+        btn.classList.remove('active-filter');
+    });
+    this.classList.add('active-filter');
+    
+    renderCourses('WDD');
 });
 
-filterCse.addEventListener('click', () => {
-    currentFilter = 'cse';
-    updateActiveButton(filterCse);
-    renderCourses('cse');
+document.getElementById('filter-cse').addEventListener('click', function() {
+    // Update active button state
+    document.querySelectorAll('.filter-buttons button').forEach(btn => {
+        btn.classList.remove('active-filter');
+    });
+    this.classList.add('active-filter');
+    
+    renderCourses('CSE');
 });
 
-// Helper function to update active button styling
-function updateActiveButton(activeButton) {
-    const buttons = [filterAll, filterWdd, filterCse];
-    buttons.forEach(btn => btn.classList.remove('active-filter'));
-    activeButton.classList.add('active-filter');
-}
-
-// Initialize with 'all' filter
-document.addEventListener('DOMContentLoaded', () => {
-    renderCourses('all');
-});
+// Initial render - show all courses
+renderCourses('all');

@@ -1,14 +1,9 @@
-// Dynamically set current year and last modified date
-document.addEventListener('DOMContentLoaded', () => {
-    // Current year
-    const yearSpan = document.getElementById('currentyear');
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
+// Get the current year
+const currentYear = new Date().getFullYear();
 
-    // Last modified date
-    const lastModified = document.getElementById('lastModified');
-    if (lastModified) {
-        lastModified.textContent = 'Last Modification: ' + document.lastModified;
-    }
-});
+// Update the copyright year in the footer
+document.getElementById('currentyear').textContent = currentYear;
+
+// Get and display the document's last modified date
+const lastModified = document.lastModified;
+document.getElementById('lastModified').textContent = `Last Modification: ${lastModified}`;

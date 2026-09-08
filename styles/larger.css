@@ -1,43 +1,58 @@
-/* ----- LARGER.CSS - Styles for screens 640px and above ----- */
-
-@media (min-width: 640px) {
+@media screen and (min-width: 768px) {
+    /* Navigation */
     #hamburger {
         display: none;
     }
 
     #primary-nav {
-        display: flex !important;
+        display: block !important;
+        position: static;
         width: auto;
-        margin-top: 0;
+        background: transparent;
+        padding: 0;
     }
 
     #primary-nav ul {
         flex-direction: row;
-        gap: 1.5rem;
+        gap: 1rem;
     }
 
     #primary-nav a {
-        display: inline-block;
-        width: auto;
-        padding: 0.5rem 0.25rem;
+        padding: 0.5rem 1rem;
     }
 
+    /* About Content */
     .about-content {
-        grid-template-columns: 2fr 1fr;
-        align-items: start;
+        flex-direction: row;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+
+    .about-content p {
+        flex: 1;
     }
 
     .about-content img {
-        max-width: 100%;
+        max-width: 250px;
     }
 
+    /* Course Grid */
     .course-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Filter Buttons */
+    .filter-buttons {
+        gap: 1rem;
     }
 }
 
-@media (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
+    .course-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
     body {
-        padding: 0 2.5rem;
+        padding: 0 2rem;
     }
 }
