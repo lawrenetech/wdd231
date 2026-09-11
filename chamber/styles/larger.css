@@ -1,0 +1,58 @@
+/* ----- LARGER.CSS - Styles for screens 640px and above ----- */
+
+@media (min-width: 640px) {
+    #hamburger {
+        display: none;
+    }
+
+    #primary-nav {
+        display: flex !important;
+        width: auto;
+        margin-top: 0;
+    }
+
+    #primary-nav ul {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+
+    #primary-nav a {
+        display: inline-block;
+        width: auto;
+        padding: 0.5rem 0.25rem;
+    }
+
+    /* Members grid - two columns */
+    .members-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Footer - two columns */
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .footer-contact,
+    .footer-dev {
+        flex: 1;
+    }
+
+    .footer-dev {
+        text-align: right;
+    }
+}
+
+@media (min-width: 900px) {
+    /* Members grid - three columns */
+    .members-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        padding: 0 2.5rem;
+    }
+}

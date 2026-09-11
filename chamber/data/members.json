@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Lagos Tech Hub",
+        "address": "45 Adeola Odeku Street, Victoria Island, Lagos",
+        "phone": "+234 802 345 6789",
+        "website": "https://lagostechhub.com",
+        "image": "techhub.webp",
+        "membership": 3,
+        "tagline": "Innovating Lagos' digital future"
+    },
+    {
+        "name": "Oceanview Foods",
+        "address": "12 Marina Road, Lagos Island, Lagos",
+        "phone": "+234 803 456 7890",
+        "website": "https://oceanviewfoods.ng",
+        "image": "oceanview.webp",
+        "membership": 2,
+        "tagline": "Fresh from the Atlantic to your table"
+    },
+    {
+        "name": "Sunrise Logistics",
+        "address": "78 Apapa Wharf Road, Apapa, Lagos",
+        "phone": "+234 805 567 8901",
+        "website": "https://sunriselogistics.com",
+        "image": "sunrise.webp",
+        "membership": 3,
+        "tagline": "Moving Nigeria forward, one shipment at a time"
+    },
+    {
+        "name": "Green Leaf Pharmacy",
+        "address": "23 Allen Avenue, Ikeja, Lagos",
+        "phone": "+234 807 678 9012",
+        "website": "https://greenleafpharmacy.ng",
+        "image": "greenleaf.webp",
+        "membership": 1,
+        "tagline": "Your health, our priority"
+    },
+    {
+        "name": "Blue Ridge Construction",
+        "address": "56 Lekki-Epe Expressway, Lekki, Lagos",
+        "phone": "+234 809 789 0123",
+        "website": "https://blueridgeconstruction.com",
+        "image": "blueridge.webp",
+        "membership": 2,
+        "tagline": "Building Lagos, one project at a time"
+    },
+    {
+        "name": "Sunset Fashion House",
+        "address": "8 Balogun Market, Lagos Island, Lagos",
+        "phone": "+234 810 890 1234",
+        "website": "https://sunsetfashion.ng",
+        "image": "sunset.webp",
+        "membership": 1,
+        "tagline": "Style that speaks for you"
+    },
+    {
+        "name": "Harmony Financial Services",
+        "address": "100 Broad Street, Lagos Island, Lagos",
+        "phone": "+234 812 901 2345",
+        "website": "https://harmonyfinancial.com",
+        "image": "harmony.webp",
+        "membership": 3,
+        "tagline": "Banking on your success"
+    },
+    {
+        "name": "Palm Grove Hotels",
+        "address": "34 Ozumba Mbadiwe Avenue, Victoria Island, Lagos",
+        "phone": "+234 814 012 3456",
+        "website": "https://palmgrovehotels.com",
+        "image": "palmgrove.webp",
+        "membership": 2,
+        "tagline": "Luxury and comfort in the heart of Lagos"
+    }
+]
