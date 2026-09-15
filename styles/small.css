@@ -277,3 +277,22 @@ footer p {
     margin: 0.25rem 0;
     font-size: 0.875rem;
 }
+:root {
+    --primary: #1e3a5f;
+    --primary-dark: #0b1a2e;
+    --text: #0b1a2e;
+    --text-secondary: #334155;   /* ← change from #475569 for stronger contrast */
+    --gold: #78350f;             /* ← change from #92400e, darker = safer */
+    --silver: #334155;           /* ← change from #475569 */
+    --member: #475569;           /* ← change from #64748b, slightly darker */
+    --border: #e2e8f0;
+}
+.view-btn {
+    min-height: 48px;       /* ← add this */
+    padding: 0.75rem 1.25rem;  /* ← increase padding */
+}
+#primary-nav a {
+    min-height: 44px;   /* ← add this */
+    display: flex;
+    align-items: center;
+}

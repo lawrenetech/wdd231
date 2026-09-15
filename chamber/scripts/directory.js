@@ -96,3 +96,8 @@ listViewBtn.addEventListener('click', () => setView('list'));
 
 // Initialize: fetch and render
 getMembers();
+<img src="images/${member.image}"
+     alt="${member.name} logo"
+     loading="lazy"
+     width="60"
+     height="60" />

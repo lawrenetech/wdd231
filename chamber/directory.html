@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Lagos Chamber of Commerce member directory. Browse local businesses, connect with members, and grow your network in Lagos, Nigeria." />
     <meta name="author" content="Lawrence Adekunle David" />
+    <meta name="theme-color" content="#1e3a5f" />
 
     <!-- Facebook / Open Graph Meta -->
     <meta property="og:title" content="Lagos Chamber of Commerce – Member Directory" />
@@ -21,8 +22,18 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600&display=swap" rel="stylesheet" />
-
+   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600&display=swap" rel="stylesheet" />
+    <link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      media="print"
+      onload="this.media='all'" />
+<noscript>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+</noscript>
     <!-- CSS: normalize first, then small, then larger -->
     <link rel="stylesheet" href="styles/normalize.css" />
     <link rel="stylesheet" href="styles/small.css" />
@@ -114,4 +125,8 @@
         </div>
     </footer>
 </body>
+<button id="grid-view" class="view-btn active-view" aria-pressed="true">
+    <svg ...aria-hidden="true">...</svg>
+    <span>Grid</span>   <!-- ← text label = accessible name -->
+</button>
 </html>
