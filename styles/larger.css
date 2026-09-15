@@ -1,58 +1,61 @@
-@media screen and (min-width: 768px) {
-    /* Navigation */
+/* ----- LARGER.CSS - Styles for screens 640px and above ----- */
+
+@media (min-width: 640px) {
     #hamburger {
         display: none;
     }
 
     #primary-nav {
-        display: block !important;
-        position: static;
+        display: flex !important;
         width: auto;
-        background: transparent;
-        padding: 0;
+        margin-top: 0;
     }
 
     #primary-nav ul {
         flex-direction: row;
-        gap: 1rem;
+        gap: 1.5rem;
     }
 
     #primary-nav a {
-        padding: 0.5rem 1rem;
+        display: inline-block;
+        width: auto;
+        padding: 0.5rem 0.25rem;
+        min-height: auto;
     }
 
-    /* About Content */
-    .about-content {
-        flex-direction: row;
-        gap: 2rem;
-        align-items: flex-start;
-    }
-
-    .about-content p {
-        flex: 1;
-    }
-
-    .about-content img {
-        max-width: 250px;
-    }
-
-    /* Course Grid */
-    .course-grid {
+    .members-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* Filter Buttons */
-    .filter-buttons {
-        gap: 1rem;
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .footer-contact,
+    .footer-dev {
+        flex: 1;
+    }
+
+    .footer-dev {
+        text-align: right;
     }
 }
 
-@media screen and (min-width: 1024px) {
-    .course-grid {
+@media (min-width: 900px) {
+    .members-grid {
         grid-template-columns: repeat(3, 1fr);
     }
+}
 
+@media (min-width: 1024px) {
     body {
-        padding: 0 2rem;
+        padding: 0 2.5rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
     }
 }
