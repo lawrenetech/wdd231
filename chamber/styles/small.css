@@ -1,6 +1,5 @@
 /* ----- SMALL.CSS - Mobile-first base styles (320px+) ----- */
 
-/* Reset & Base */
 * {
     margin: 0;
     padding: 0;
@@ -15,11 +14,11 @@
     --bg-card: #ffffff;
     --bg-secondary: #f1f5f9;
     --text: #0b1a2e;
-    --text-secondary: #475569;
+    --text-secondary: #334155;
     --border: #e2e8f0;
-    --gold: #92400e;
-    --silver: #475569;
-    --member: #64748b;
+    --gold: #78350f;
+    --silver: #334155;
+    --member: #475569;
 }
 
 html {
@@ -43,7 +42,7 @@ img {
     display: block;
 }
 
-/* ----- HEADER ----- */
+/* HEADER */
 header {
     display: flex;
     align-items: center;
@@ -78,7 +77,7 @@ header {
     color: var(--text-secondary);
 }
 
-/* ----- HAMBURGER ----- */
+/* HAMBURGER */
 #hamburger {
     display: flex;
     flex-direction: column;
@@ -98,7 +97,7 @@ header {
     transition: 0.25s;
 }
 
-/* ----- NAVIGATION ----- */
+/* NAV */
 #primary-nav {
     display: none;
     width: 100%;
@@ -117,7 +116,9 @@ header {
 }
 
 #primary-nav a {
-    display: block;
+    display: flex;
+    align-items: center;
+    min-height: 44px;
     width: 100%;
     padding: 0.6rem 0.5rem;
     font-weight: 500;
@@ -137,7 +138,7 @@ header {
     border-bottom-color: var(--primary);
 }
 
-/* ----- MAIN ----- */
+/* MAIN */
 main {
     padding: 2rem 0 3rem;
 }
@@ -156,7 +157,7 @@ h1 {
     max-width: 60ch;
 }
 
-/* ----- VIEW CONTROLS ----- */
+/* VIEW CONTROLS */
 .view-controls {
     display: flex;
     gap: 0.5rem;
@@ -167,7 +168,8 @@ h1 {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    padding: 0.55rem 1rem;
+    min-height: 48px;
+    padding: 0.75rem 1.25rem;
     font-family: inherit;
     font-weight: 500;
     font-size: 0.9rem;
@@ -194,7 +196,7 @@ h1 {
     border-color: var(--primary);
 }
 
-/* ----- MEMBER CONTAINER: GRID VIEW (default) ----- */
+/* MEMBERS - GRID VIEW */
 .members-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -250,6 +252,7 @@ h1 {
     flex-direction: column;
     gap: 0.25rem;
     margin-top: 0.25rem;
+    word-break: break-word;
 }
 
 .member-card .info a {
@@ -278,7 +281,7 @@ h1 {
 .member-card.level-2 .badge { background: var(--silver); }
 .member-card.level-3 .badge { background: var(--gold); }
 
-/* ----- MEMBER CONTAINER: LIST VIEW ----- */
+/* MEMBERS - LIST VIEW */
 .members-list {
     display: flex;
     flex-direction: column;
@@ -299,7 +302,7 @@ h1 {
 .members-list .member-card.level-3 { border-left-color: var(--gold); }
 
 .members-list .member-card img {
-    display: none; /* list view = no images */
+    display: none;
 }
 
 .members-list .member-card .card-header {
@@ -323,17 +326,13 @@ h1 {
     font-size: 0.8rem;
 }
 
-.members-list .member-card .info a {
-    white-space: nowrap;
-}
-
 .members-list .member-card .badge {
     margin-top: 0;
     margin-left: auto;
     flex-shrink: 0;
 }
 
-/* ----- FOOTER ----- */
+/* FOOTER */
 footer {
     padding: 2rem 0 1.5rem;
     margin-top: 3rem;
@@ -375,7 +374,6 @@ footer a:hover {
     font-size: 0.8rem;
 }
 
-/* ----- ERROR / LOADING STATES ----- */
 .error-message {
     background: #fee2e2;
     color: #991b1b;

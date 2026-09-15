@@ -22,42 +22,22 @@
         padding: 0.5rem 0.25rem;
     }
 
-    /* Members grid: 2 columns */
-    .members-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .about-content {
+        grid-template-columns: 2fr 1fr;
+        align-items: start;
     }
 
-    /* Footer: 2 columns */
-    footer {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-        text-align: left;
+    .about-content img {
+        max-width: 100%;
     }
 
-    .footer-contact,
-    .footer-dev {
-        flex: 1;
-    }
-
-    .footer-dev {
-        text-align: right;
-    }
-}
-
-@media (min-width: 900px) {
-    /* Members grid: 3 columns */
-    .members-grid {
-        grid-template-columns: repeat(3, 1fr);
+    .course-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
 }
 
 @media (min-width: 1024px) {
     body {
         padding: 0 2.5rem;
-    }
-
-    h1 {
-        font-size: 2.2rem;
     }
 }
