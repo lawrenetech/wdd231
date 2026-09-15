@@ -20,13 +20,14 @@
         display: inline-block;
         width: auto;
         padding: 0.5rem 0.25rem;
-        min-height: auto;
     }
 
+    /* Members grid: 2 columns */
     .members-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    /* Footer: 2 columns */
     footer {
         flex-direction: row;
         justify-content: space-between;
@@ -45,6 +46,7 @@
 }
 
 @media (min-width: 900px) {
+    /* Members grid: 3 columns */
     .members-grid {
         grid-template-columns: repeat(3, 1fr);
     }
