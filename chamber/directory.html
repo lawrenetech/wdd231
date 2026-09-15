@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Lagos Chamber of Commerce – Member Directory. Connecting businesses, building community." />
+    <meta name="description" content="Lagos Chamber of Commerce member directory. Browse local businesses, connect with members, and grow your network in Lagos, Nigeria." />
     <meta name="author" content="Lawrence Adekunle David" />
 
     <!-- Facebook / Open Graph Meta -->
@@ -23,39 +23,39 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600&display=swap" rel="stylesheet" />
 
-    <!-- CSS -->
+    <!-- CSS: normalize first, then small, then larger -->
     <link rel="stylesheet" href="styles/normalize.css" />
     <link rel="stylesheet" href="styles/small.css" />
     <link rel="stylesheet" href="styles/larger.css" />
 
-    <!-- JavaScript -->
+    <!-- JavaScript: defer, no inline JS -->
     <script src="scripts/navigation.js" defer></script>
     <script src="scripts/date.js" defer></script>
     <script src="scripts/directory.js" defer></script>
 </head>
 <body>
     <header>
-        <div class="logo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="48" height="48">
+        <a href="../index.html" class="logo" aria-label="Lagos Chamber of Commerce home">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="48" height="48" aria-hidden="true">
                 <rect width="100" height="100" rx="12" fill="#1e3a5f"/>
-                <text x="50" y="68" font-family="Inter, sans-serif" font-size="46" fill="white" text-anchor="middle" font-weight="600">LC</text>
+                <text x="50" y="68" font-family="Inter, sans-serif" font-size="46" fill="#ffffff" text-anchor="middle" font-weight="600">LC</text>
             </svg>
-            <div class="site-title">
+            <span class="site-title">
                 <span class="site-name">Lagos Chamber</span>
                 <span class="site-tagline">of Commerce</span>
-            </div>
-        </div>
+            </span>
+        </a>
 
-        <button id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <button id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
 
-        <nav id="primary-nav">
+        <nav id="primary-nav" aria-label="Main navigation">
             <ul>
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="directory.html" class="active">Directory</a></li>
+                <li><a href="directory.html" class="active" aria-current="page">Directory</a></li>
                 <li><a href="discover.html">Discover</a></li>
                 <li><a href="join.html">Join</a></li>
             </ul>
@@ -69,29 +69,29 @@
             directory and connect with the people and companies shaping our community.
         </p>
 
-        <!-- View toggle controls -->
-        <div class="view-controls">
-            <button id="grid-view" class="view-btn active-view" aria-label="Grid view">
+        <!-- View toggle: grid vs. list -->
+        <div class="view-controls" role="group" aria-label="Choose directory view">
+            <button id="grid-view" class="view-btn active-view" aria-pressed="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <rect x="3" y="3" width="7" height="7"/>
                     <rect x="14" y="3" width="7" height="7"/>
                     <rect x="3" y="14" width="7" height="7"/>
                     <rect x="14" y="14" width="7" height="7"/>
                 </svg>
-                Grid
+                <span>Grid</span>
             </button>
-            <button id="list-view" class="view-btn" aria-label="List view">
+            <button id="list-view" class="view-btn" aria-pressed="false">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <rect x="3" y="5" width="18" height="2"/>
                     <rect x="3" y="11" width="18" height="2"/>
                     <rect x="3" y="17" width="18" height="2"/>
                 </svg>
-                List
+                <span>List</span>
             </button>
         </div>
 
-        <!-- Members container (dynamically built) -->
-        <div id="members-container" class="members-grid" aria-live="polite"></div>
+        <!-- Members container: populated by directory.js -->
+        <div id="members-container" class="members-grid" aria-live="polite" aria-busy="true"></div>
     </main>
 
     <footer>

@@ -1,4 +1,4 @@
-// Dynamic footer dates
+// Dynamic footer dates: current year + last modified
 document.addEventListener('DOMContentLoaded', () => {
     const yearSpan = document.getElementById('currentyear');
     if (yearSpan) {
@@ -7,6 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const lastModified = document.getElementById('lastModified');
     if (lastModified) {
-        lastModified.textContent = 'Last Modified: ' + document.lastModified;
+        lastModified.textContent = `Last Modified: ${document.lastModified}`;
     }
 });

@@ -1,4 +1,4 @@
-/* ----- SMALL.CSS - Mobile-first base styles ----- */
+/* ----- SMALL.CSS - Mobile-first base styles (320px+) ----- */
 
 /* Reset & Base */
 * {
@@ -7,14 +7,34 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary: #1e3a5f;
+    --primary-dark: #0b1a2e;
+    --primary-light: #dbeafe;
+    --bg-page: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-secondary: #f1f5f9;
+    --text: #0b1a2e;
+    --text-secondary: #475569;
+    --border: #e2e8f0;
+    --gold: #92400e;
+    --silver: #475569;
+    --member: #64748b;
+}
+
+html {
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Inter', sans-serif;
-    background: #f8fafc;
-    color: #0b1a2e;
+    background: var(--bg-page);
+    color: var(--text);
     line-height: 1.6;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.25rem;
+    padding: 0 1rem;
+    overflow-x: hidden;
 }
 
 img {
@@ -23,22 +43,7 @@ img {
     display: block;
 }
 
-/* Color Variables */
-:root {
-    --primary: #1e3a5f;
-    --primary-dark: #0b1a2e;
-    --primary-light: #dbeafe;
-    --bg-card: #fff;
-    --bg-secondary: #f1f5f9;
-    --text: #0b1a2e;
-    --text-secondary: #475569;
-    --border: #e2e8f0;
-    --gold: #b8860b;
-    --silver: #64748b;
-    --member: #94a3b8;
-}
-
-/* Header */
+/* ----- HEADER ----- */
 header {
     display: flex;
     align-items: center;
@@ -52,6 +57,8 @@ header {
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    text-decoration: none;
+    color: inherit;
 }
 
 .site-title {
@@ -71,7 +78,7 @@ header {
     color: var(--text-secondary);
 }
 
-/* Hamburger */
+/* ----- HAMBURGER ----- */
 #hamburger {
     display: flex;
     flex-direction: column;
@@ -91,7 +98,7 @@ header {
     transition: 0.25s;
 }
 
-/* Navigation */
+/* ----- NAVIGATION ----- */
 #primary-nav {
     display: none;
     width: 100%;
@@ -106,39 +113,41 @@ header {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.25rem;
 }
 
 #primary-nav a {
     display: block;
     width: 100%;
-    padding: 0.5rem 0.25rem;
+    padding: 0.6rem 0.5rem;
     font-weight: 500;
     color: var(--primary);
     text-decoration: none;
     border-bottom: 3px solid transparent;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, color 0.2s;
 }
 
-#primary-nav a:hover,
-#primary-nav a.active {
+#primary-nav a:hover {
+    color: var(--primary-dark);
     border-bottom-color: var(--primary);
 }
 
 #primary-nav a.active {
     font-weight: 600;
+    border-bottom-color: var(--primary);
 }
 
-/* Main */
+/* ----- MAIN ----- */
 main {
     padding: 2rem 0 3rem;
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 1.9rem;
     font-weight: 600;
     color: var(--primary-dark);
     margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
 }
 
 .intro {
@@ -147,7 +156,7 @@ h1 {
     max-width: 60ch;
 }
 
-/* View controls */
+/* ----- VIEW CONTROLS ----- */
 .view-controls {
     display: flex;
     gap: 0.5rem;
@@ -158,7 +167,7 @@ h1 {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    padding: 0.5rem 1rem;
+    padding: 0.55rem 1rem;
     font-family: inherit;
     font-weight: 500;
     font-size: 0.9rem;
@@ -174,20 +183,24 @@ h1 {
     background: #e2e8f0;
 }
 
+.view-btn:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
 .view-btn.active-view {
-    color: #fff;
+    color: #ffffff;
     background: var(--primary);
     border-color: var(--primary);
 }
 
-/* Members - Grid (default) */
+/* ----- MEMBER CONTAINER: GRID VIEW (default) ----- */
 .members-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
 }
 
-/* Member card (grid view) */
 .member-card {
     background: var(--bg-card);
     border-radius: 10px;
@@ -214,6 +227,7 @@ h1 {
     border-radius: 8px;
     object-fit: cover;
     background: var(--bg-secondary);
+    flex-shrink: 0;
 }
 
 .member-card h3 {
@@ -241,7 +255,7 @@ h1 {
 .member-card .info a {
     color: var(--primary);
     text-decoration: none;
-    word-break: break-all;
+    word-break: break-word;
 }
 
 .member-card .info a:hover {
@@ -255,16 +269,16 @@ h1 {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    padding: 0.2rem 0.6rem;
+    padding: 0.25rem 0.65rem;
     border-radius: 20px;
-    color: #fff;
+    color: #ffffff;
     background: var(--member);
 }
 
 .member-card.level-2 .badge { background: var(--silver); }
 .member-card.level-3 .badge { background: var(--gold); }
 
-/* Members - List view */
+/* ----- MEMBER CONTAINER: LIST VIEW ----- */
 .members-list {
     display: flex;
     flex-direction: column;
@@ -277,15 +291,15 @@ h1 {
     padding: 0.75rem 1rem;
     border-top: none;
     border-left: 4px solid var(--member);
-    gap: 1rem;
     border-radius: 6px;
+    gap: 1rem;
 }
 
 .members-list .member-card.level-2 { border-left-color: var(--silver); }
 .members-list .member-card.level-3 { border-left-color: var(--gold); }
 
 .members-list .member-card img {
-    display: none;
+    display: none; /* list view = no images */
 }
 
 .members-list .member-card .card-header {
@@ -309,13 +323,17 @@ h1 {
     font-size: 0.8rem;
 }
 
+.members-list .member-card .info a {
+    white-space: nowrap;
+}
+
 .members-list .member-card .badge {
     margin-top: 0;
     margin-left: auto;
     flex-shrink: 0;
 }
 
-/* Footer */
+/* ----- FOOTER ----- */
 footer {
     padding: 2rem 0 1.5rem;
     margin-top: 3rem;
@@ -355,14 +373,19 @@ footer a:hover {
 
 #lastModified {
     font-size: 0.8rem;
-    color: var(--text-secondary);
 }
 
-/* Error state */
+/* ----- ERROR / LOADING STATES ----- */
 .error-message {
     background: #fee2e2;
     color: #991b1b;
     padding: 1rem;
     border-radius: 8px;
     text-align: center;
+}
+
+.loading {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 2rem 0;
 }

@@ -1,4 +1,4 @@
-// Directory page: fetch members and render grid/list views
+// Directory page: fetch members.json and render grid/list views
 
 const membersContainer = document.getElementById('members-container');
 const gridViewBtn = document.getElementById('grid-view');
@@ -16,6 +16,9 @@ const membershipLabels = {
 
 // Fetch members from JSON using async/await
 async function getMembers() {
+    membersContainer.setAttribute('aria-busy', 'true');
+    membersContainer.innerHTML = '<p class="loading">Loading members…</p>';
+
     try {
         const response = await fetch('data/members.json');
         if (!response.ok) {
@@ -30,6 +33,8 @@ async function getMembers() {
                 Unable to load member directory. Please try again later.
             </p>
         `;
+    } finally {
+        membersContainer.setAttribute('aria-busy', 'false');
     }
 }
 
@@ -37,7 +42,7 @@ async function getMembers() {
 function renderMembers(members, view) {
     membersContainer.innerHTML = '';
 
-    // Set container class for grid or list
+    // Swap container class for grid or list
     membersContainer.classList.toggle('members-grid', view === 'grid');
     membersContainer.classList.toggle('members-list', view === 'list');
 
@@ -47,7 +52,11 @@ function renderMembers(members, view) {
 
         card.innerHTML = `
             <div class="card-header">
-                <img src="images/${member.image}" alt="${member.name} logo" loading="lazy" width="60" height="60" />
+                <img src="images/${member.image}"
+                     alt="${member.name} logo"
+                     loading="lazy"
+                     width="60"
+                     height="60" />
                 <div>
                     <h3>${member.name}</h3>
                     <p class="tagline">${member.tagline || ''}</p>
@@ -56,7 +65,9 @@ function renderMembers(members, view) {
             <div class="info">
                 <span>${member.address}</span>
                 <a href="tel:${member.phone.replace(/\s/g, '')}">${member.phone}</a>
-                <a href="${member.website}" target="_blank" rel="noopener">${member.website.replace('https://', '')}</a>
+                <a href="${member.website}" target="_blank" rel="noopener">
+                    ${member.website.replace(/^https?:\/\//, '')}
+                </a>
             </div>
             <span class="badge">${membershipLabels[member.membership]}</span>
         `;
@@ -65,11 +76,17 @@ function renderMembers(members, view) {
     });
 }
 
-// Switch view
+// Switch view and update button states
 function setView(view) {
     currentView = view;
-    gridViewBtn.classList.toggle('active-view', view === 'grid');
-    listViewBtn.classList.toggle('active-view', view === 'list');
+
+    const isGrid = view === 'grid';
+    gridViewBtn.classList.toggle('active-view', isGrid);
+    listViewBtn.classList.toggle('active-view', !isGrid);
+
+    gridViewBtn.setAttribute('aria-pressed', String(isGrid));
+    listViewBtn.setAttribute('aria-pressed', String(!isGrid));
+
     renderMembers(membersData, view);
 }
 
@@ -77,5 +94,5 @@ function setView(view) {
 gridViewBtn.addEventListener('click', () => setView('grid'));
 listViewBtn.addEventListener('click', () => setView('list'));
 
-// initialize
+// Initialize: fetch and render
 getMembers();
