@@ -73,3 +73,29 @@ function renderSpotlights(members) {
 }
 
 loadSpotlights();
+
+card.innerHTML = `
+    <div class="spotlight-header">
+        <img src="images/${member.image}"
+             alt="${member.name} logo"
+             loading="lazy"
+             width="80"
+             height="80" />
+        <div>
+            <h3>${member.name}</h3>
+            <span class="badge badge-${member.membership}">
+                ${membershipLabels[member.membership]}
+            </span>
+        </div>
+    </div>
+    <p class="spotlight-tagline">${member.tagline || ''}</p>
+    <div class="spotlight-info">
+        <p><strong>Address:</strong> ${member.address}</p>
+        <p><strong>Phone:</strong> <a href="tel:${member.phone.replace(/\s/g, '')}">${member.phone}</a></p>
+        <p><strong>Website:</strong>
+            <a href="${member.website}" target="_blank" rel="noopener">
+                ${member.website.replace(/^https?:\/\//, '')}
+            </a>
+        </p>
+    </div>
+`;
