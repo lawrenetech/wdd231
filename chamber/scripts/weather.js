@@ -1,12 +1,15 @@
-// Weather for Lagos Chamber — OpenWeatherMap with built-in fallback.
+// Weather for Lagos Chamber — OpenWeatherMap with graceful fallback.
 //
 // HOW IT WORKS:
-//   1. Try to fetch live data from OpenWeatherMap (if API_KEY is set and active).
-//   2. If the fetch fails for any reason, render a cached fallback so the
-//      section still shows temperature, description, and a 3-day forecast.
+//   1. If API_KEY is set and the fetch succeeds → render live weather.
+//   2. Otherwise → render cached fallback for Lagos so the section always
+//      shows temperature, description, and a 3-day forecast.
 //
-// Get a free key at https://home.openweathermap.org/api_keys
-// Paste it below. New keys take ~10 minutes to activate.
+// To enable live weather:
+//   1. Get a free key at https://home.openweathermap.org/api_keys
+//   2. Wait ~10 minutes for it to activate.
+//   3. Paste it below (between the quotes).
+//   4. Commit and push.
 
 const API_KEY = 'YOUR_OPENWEATHERMAP_API_KEY_HERE';
 const LAT = 6.5244;
@@ -15,7 +18,7 @@ const UNITS = 'metric';
 
 const weatherContainer = document.getElementById('weather-container');
 
-// ---------- Fallback data (used if API fails) ----------
+// Fallback dataset (used only if the live API call fails)
 const FALLBACK = {
     current: { temp: 28, desc: 'scattered clouds', icon: '03d' },
     forecast: [
@@ -25,13 +28,13 @@ const FALLBACK = {
     ]
 };
 
-// ---------- Live fetch ----------
 async function getWeather() {
     if (!weatherContainer) return;
+    weatherContainer.setAttribute('aria-busy', 'true');
 
-    // If no key is set yet, render fallback immediately
+    // If no API key is configured, use the fallback silently.
     if (!API_KEY || API_KEY === 'YOUR_OPENWEATHERMAP_API_KEY_HERE') {
-        renderFallback('Add your OpenWeatherMap API key in scripts/weather.js to see live data.');
+        renderFallback();
         return;
     }
 
@@ -59,13 +62,12 @@ async function getWeather() {
     }
 }
 
-// ---------- Live render ----------
 function renderLive(current, forecast) {
     const temp = Math.round(current.main.temp);
     const desc = current.weather[0].description;
     const icon = current.weather[0].icon;
 
-    // Pick one entry per day, closest to noon
+    // Group forecast entries by day and keep the one closest to noon.
     const byDay = {};
     forecast.list.forEach(item => {
         const [date, time] = item.dt_txt.split(' ');
@@ -108,8 +110,7 @@ function renderLive(current, forecast) {
     `;
 }
 
-// ---------- Fallback render ----------
-function renderFallback(note) {
+function renderFallback() {
     const { current, forecast } = FALLBACK;
 
     const forecastHTML = forecast.map(day => `
@@ -132,7 +133,6 @@ function renderFallback(note) {
         </div>
         <h3 class="forecast-title">3-Day Forecast</h3>
         <ul class="forecast-list">${forecastHTML}</ul>
-        ${note ? `<p class="weather-note">${note}</p>` : ''}
     `;
 }
 
