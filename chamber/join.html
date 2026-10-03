@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Join the Lagos Chamber of Commerce. Apply for membership and connect with local businesses in Lagos, Nigeria." />
+    <meta name="author" content="Lawrence Adekunle David" />
+    <meta name="theme-color" content="#1e3a5f" />
+
+    <meta property="og:title" content="Join the Lagos Chamber of Commerce" />
+    <meta property="og:description" content="Apply for membership and grow your business with the Lagos Chamber of Commerce." />
+    <meta property="og:image" content="https://lawrenetech.github.io/wdd231/chamber/images/hero.svg" />
+    <meta property="og:url" content="https://lawrenetech.github.io/wdd231/chamber/join.html" />
+    <meta property="og:type" content="website" />
+
+    <title>Join | Lagos Chamber of Commerce</title>
+
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles/normalize.css" />
+    <link rel="stylesheet" href="styles/small.css" />
+    <link rel="stylesheet" href="styles/larger.css" />
+
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/join.js" defer></script>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo" aria-label="Lagos Chamber of Commerce home">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="48" height="48" aria-hidden="true">
+                <rect width="100" height="100" rx="12" fill="#1e3a5f"/>
+                <text x="50" y="68" font-family="Inter, sans-serif" font-size="46" fill="#ffffff" text-anchor="middle" font-weight="600">LC</text>
+            </svg>
+            <span class="site-title">
+                <span class="site-name">Lagos Chamber</span>
+                <span class="site-tagline">of Commerce</span>
+            </span>
+        </a>
+
+        <button id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <nav id="primary-nav" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="discover.html">Discover</a></li>
+                <li><a href="join.html" class="active" aria-current="page">Join</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="join-main">
+        <h1>Join the Chamber</h1>
+        <p class="intro">
+            Become a member of the Lagos Chamber of Commerce and connect with the
+            businesses shaping our community. Fill out the form below to apply.
+        </p>
+
+        <div class="join-layout">
+            <!-- FORM -->
+            <form action="thankyou.html" method="get" class="join-form">
+                <label>
+                    First Name
+                    <input type="text"
+                           name="firstName"
+                           title="Applicant's first name"
+                           autocomplete="given-name"
+                           required />
+                </label>
+
+                <label>
+                    Last Name
+                    <input type="text"
+                           name="lastName"
+                           title="Applicant's last name"
+                           autocomplete="family-name"
+                           required />
+                </label>
+
+                <label>
+                    Organizational Title
+                    <input type="text"
+                           name="orgTitle"
+                           title="Your title within your organization (alpha, hyphens, spaces only, min 7 characters)"
+                           autocomplete="organization-title"
+                           pattern="[A-Za-z\-\s]{7,}"
+                           minlength="7" />
+                </label>
+
+                <label>
+                    Email Address
+                    <input type="email"
+                           name="email"
+                           title="Your email address"
+                           autocomplete="email"
+                           placeholder="you@example.com"
+                           required />
+                </label>
+
+                <label>
+                    Mobile Phone
+                    <input type="tel"
+                           name="phone"
+                           title="Your mobile phone number"
+                           autocomplete="tel"
+                           required />
+                </label>
+
+                <label>
+                    Business / Organization Name
+                    <input type="text"
+                           name="organization"
+                           title="Your business or organization name"
+                           autocomplete="organization"
+                           required />
+                </label>
+
+                <label>
+                    Membership Level
+                    <select name="membership" title="Choose a membership level" required>
+                        <option value="" disabled selected>Select a level…</option>
+                        <option value="np">NP Membership (Non-profit, no fee)</option>
+                        <option value="bronze">Bronze Membership</option>
+                        <option value="silver">Silver Membership</option>
+                        <option value="gold">Gold Membership</option>
+                    </select>
+                </label>
+
+                <label>
+                    Business / Organization Description
+                    <textarea name="description"
+                              title="Describe your business or organization"
+                              rows="4"></textarea>
+                </label>
+
+                <input type="hidden" name="timestamp" id="timestamp" />
+
+                <input type="submit" value="Apply for Membership" class="submit-btn" />
+            </form>
+
+            <!-- MEMBERSHIP CARDS -->
+            <aside class="membership-cards" aria-label="Membership levels">
+                <div class="card card-np">
+                    <h2>NP Membership</h2>
+                    <p>For non-profit organizations. No fee required.</p>
+                    <a href="#modal-np" class="modal-link" data-modal="modal-np">View Benefits →</a>
+                </div>
+                <div class="card card-bronze">
+                    <h2>Bronze Membership</h2>
+                    <p>Entry-level access to chamber events and networking.</p>
+                    <a href="#modal-bronze" class="modal-link" data-modal="modal-bronze">View Benefits →</a>
+                </div>
+                <div class="card card-silver">
+                    <h2>Silver Membership</h2>
+                    <p>Enhanced visibility and event discounts for growing businesses.</p>
+                    <a href="#modal-silver" class="modal-link" data-modal="modal-silver">View Benefits →</a>
+                </div>
+                <div class="card card-gold">
+                    <h2>Gold Membership</h2>
+                    <p>Premium benefits including spotlight features and top-tier advertising.</p>
+                    <a href="#modal-gold" class="modal-link" data-modal="modal-gold">View Benefits →</a>
+                </div>
+            </aside>
+        </div>
+
+        <!-- MODALS -->
+        <dialog id="modal-np" class="membership-modal">
+            <h2>NP Membership Benefits</h2>
+            <ul>
+                <li>No annual fee</li>
+                <li>Access to monthly networking events</li>
+                <li>Listing in the member directory</li>
+                <li>Access to community training workshops</li>
+            </ul>
+            <button class="close-modal" aria-label="Close">Close</button>
+        </dialog>
+
+        <dialog id="modal-bronze" class="membership-modal">
+            <h2>Bronze Membership Benefits</h2>
+            <ul>
+                <li>Annual fee: ₦50,000</li>
+                <li>All NP benefits</li>
+                <li>10% discount on chamber events</li>
+                <li>Quarterly newsletter feature</li>
+                <li>Access to members-only forums</li>
+            </ul>
+            <button class="close-modal" aria-label="Close">Close</button>
+        </dialog>
+
+        <dialog id="modal-silver" class="membership-modal">
+            <h2>Silver Membership Benefits</h2>
+            <ul>
+                <li>Annual fee: ₦120,000</li>
+                <li>All Bronze benefits</li>
+                <li>20% discount on chamber events</li>
+                <li>Rotating spotlight on the chamber home page</li>
+                <li>Free entry to two training workshops per year</li>
+            </ul>
+            <button class="close-modal" aria-label="Close">Close</button>
+        </dialog>
+
+        <dialog id="modal-gold" class="membership-modal">
+            <h2>Gold Membership Benefits</h2>
+            <ul>
+                <li>Annual fee: ₦250,000</li>
+                <li>All Silver benefits</li>
+                <li>30% discount on chamber events</li>
+                <li>Premium spotlight position on the home page</li>
+                <li>Free entry to all training workshops</li>
+                <li>Featured advertisement in the annual chamber report</li>
+            </ul>
+            <button class="close-modal" aria-label="Close">Close</button>
+        </dialog>
+    </main>
+
+    <footer>
+        <div class="footer-contact">
+            <h2>Contact Us</h2>
+            <address>
+                123 Broad Street<br />
+                Lagos Island, Lagos State<br />
+                Nigeria<br />
+                <a href="tel:+2348012345678">+234 801 234 5678</a><br />
+                <a href="mailto:info@lagoschamber.org">info@lagoschamber.org</a>
+            </address>
+        </div>
+
+        <div class="footer-dev">
+            <p>Lawrence Adekunle David</p>
+            <p>WDD 231 – Web Frontend Development I</p>
+            <p id="lastModified">Last Modified: </p>
+            <p id="copyright">&copy; <span id="currentyear"></span> Lagos Chamber of Commerce</p>
+        </div>
+    </footer>
+</body>
+</html>

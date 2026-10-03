@@ -59,3 +59,23 @@
         font-size: 2.2rem;
     }
 }
+    /* Join page: form on left, cards on right */
+    .join-layout {
+        grid-template-columns: 1.4fr 1fr;
+        align-items: start;
+    }
+
+    .membership-cards {
+        position: sticky;
+        top: 1rem;
+    }
+
+    /* Thank you: two-column definition list */
+    .submission-summary {
+        grid-template-columns: max-content 1fr;
+    }
+
+    .submission-summary dd {
+        border-bottom: none;
+        margin-bottom: 0.5rem;
+    }
