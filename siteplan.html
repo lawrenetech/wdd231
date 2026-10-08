@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Site plan for the Nigeria Artifacts Museum website project — WDD 231." />
+    <meta name="author" content="Lawrence Adekunle David" />
+
+    <title>Site Plan | Nigeria Artifacts Museum</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+:root {
+    /* ---------- NIGERIAN HERITAGE PALETTE ---------- */
+    --green: #0b6e4f;             /* Nigerian flag green (deep) */
+    --green-bright: #10b981;      /* Vibrant green for accents */
+    --green-dark: #064e3b;        /* Deep forest green */
+    --green-light: #d1fae5;       /* Fresh green tint */
+
+    --gold: #d4a017;              /* Benin bronze gold */
+    --gold-bright: #fbbf24;       /* Vibrant gold */
+    --gold-light: #fef3c7;        /* Warm gold tint */
+
+    --indigo: #1e3a8a;            /* Adire indigo dye */
+    --indigo-dark: #172554;       /* Deep indigo */
+    --indigo-light: #dbeafe;      /* Soft indigo tint */
+
+    --terracotta: #c2410c;        /* Nok terracotta */
+    --terracotta-dark: #7c2d12;   /* Deep terracotta */
+    --terracotta-light: #fed7aa;  /* Warm clay tint */
+
+    --purple: #6b21a8;            /* Royal Yoruba purple */
+    --red: #b91c1c;               /* Traditional red */
+
+    /* ---------- BACKGROUNDS ---------- */
+    --bg-page: #fefce8;                                   /* Warm cream */
+    --bg-page-gradient: linear-gradient(180deg, #fefce8 0%, #fef3c7 50%, #fed7aa 100%);
+    --bg-card: #ffffff;
+    --bg-secondary: #f0fdf4;                              /* Light green tint */
+    --bg-hero: linear-gradient(135deg, #064e3b 0%, #0b6e4f 50%, #d4a017 100%);
+
+    /* ---------- TEXT ---------- */
+    --text: #1c1917;
+    --text-secondary: #44403c;
+    --text-muted: #78716c;
+    --text-on-dark: #fef3c7;
+
+    /* ---------- BORDERS ---------- */
+    --border: #e7e0d4;
+    --border-strong: #d6cbb8;
+
+    /* ---------- RADII / SHADOWS ---------- */
+    --radius: 10px;
+    --radius-lg: 16px;
+
+    --shadow-sm: 0 1px 2px rgba(6, 78, 59, 0.08);
+    --shadow: 0 4px 14px rgba(6, 78, 59, 0.10);
+    --shadow-lg: 0 12px 30px rgba(6, 78, 59, 0.15);
+    --shadow-inner: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+
+    /* ---------- DECORATIVE PATTERNS ---------- */
+    --pattern-kente: repeating-linear-gradient(
+        45deg,
+        rgba(212, 160, 23, 0.04) 0px,
+        rgba(212, 160, 23, 0.04) 2px,
+        transparent 2px,
+        transparent 12px
+    ),
+    repeating-linear-gradient(
+        -45deg,
+        rgba(11, 110, 79, 0.04) 0px,
+        rgba(11, 110, 79, 0.04) 2px,
+        transparent 2px,
+        transparent 12px
+    );
+}
+
+/* ---------- BASE WITH LAYERED NIGERIAN HERITAGE BACKGROUND ---------- */
+html {
+    scroll-behavior: smooth;
+    background: #fef3c7;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg-page-gradient);
+    background-attachment: fixed;
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 4rem;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Subtle kente-inspired diagonal pattern overlay */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: var(--pattern-kente);
+    pointer-events: none;
+    z-index: 0;
+}
+
+header, main, footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------- HEADER WITH TRICOLOR HERITAGE BAR ---------- */
+header {
+    padding: 2rem 0 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(
+        90deg,
+        var(--green) 0%,
+        var(--green) 33%,
+        var(--gold) 33%,
+        var(--gold) 66%,
+        var(--terracotta) 66%,
+        var(--terracotta) 100%
+    );
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(11, 110, 79, 0.2);
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--gold) 50%,
+        transparent 100%
+    );
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    background: linear-gradient(
+        135deg,
+        #064e3b 0%,
+        #0b6e4f 30%,
+        #d4a017 70%,
+        #c2410c 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-style: italic;
+    letter-spacing: 0.01em;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.subtitle::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.2);
+}
+
+/* ---------- SECTION HEADINGS WITH VIBRANT ACCENT BAR ---------- */
+h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--green-dark);
+    margin: 2.5rem 0 1.25rem;
+    padding: 0.75rem 1rem 0.75rem 1.25rem;
+    border-left: 6px solid var(--gold);
+    background: linear-gradient(
+        90deg,
+        rgba(209, 250, 229, 0.7) 0%,
+        rgba(254, 243, 199, 0.4) 50%,
+        transparent 100%
+    );
+    border-radius: 0 var(--radius) var(--radius) 0;
+    letter-spacing: -0.015em;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 1.15rem;
+    letter-spacing: 0.03em;
+}
+
+h2::after {
+    content: "";
+    position: absolute;
+    left: 1.25rem;
+    bottom: 0.4rem;
+    width: 50px;
+    height: 2px;
+    background: var(--green);
+    border-radius: 2px;
+}
+
+h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--terracotta-dark);
+    margin: 1.5rem 0 0.5rem;
+    padding-left: 0.75rem;
+    border-left: 3px solid var(--gold);
+}
+
+p {
+    margin-bottom: 0.9rem;
+    color: var(--text);
+}
+
+ul, ol {
+    margin: 0.5rem 0 1rem 1.5rem;
+    color: var(--text);
+}
+
+li {
+    margin-bottom: 0.4rem;
+}
+
+li::marker {
+    color: var(--green);
+    font-weight: 700;
+}
+
+strong {
+    color: var(--terracotta-dark);
+    font-weight: 700;
+    background: linear-gradient(
+        180deg,
+        transparent 60%,
+        rgba(251, 191, 36, 0.25) 60%
+    );
+    padding: 0 0.15rem;
+}
+
+code {
+    font-family: 'Consolas', 'Monaco', monospace;
+    background: var(--indigo-light);
+    padding: 0.15rem 0.5rem;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    color: var(--indigo-dark);
+    border: 1px solid rgba(30, 58, 138, 0.15);
+    font-weight: 600;
+}
+
+/* ---------- INTRO CARD WITH HERITAGE GRADIENT ---------- */
+.intro-card {
+    background: linear-gradient(
+        135deg,
+        #f0fdf4 0%,
+        #fef3c7 50%,
+        #fed7aa 100%
+    );
+    padding: 1.5rem 1.75rem;
+    border-radius: var(--radius-lg);
+    border-left: 6px solid var(--green);
+    box-shadow: var(--shadow), var(--shadow-inner);
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.intro-card::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(212, 160, 23, 0.20) 0%,
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+.intro-card::after {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    left: -40px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(11, 110, 79, 0.15) 0%,
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+.intro-card p {
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------- SWATCH CARDS ---------- */
+.swatch-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1.25rem 0;
+}
+
+.swatch {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.15rem;
+    background: linear-gradient(135deg, #ffffff 0%, #fefce8 100%);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.swatch::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--green) 0%, var(--gold) 100%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.swatch:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--gold);
+}
+
+.swatch:hover::before {
+    opacity: 1;
+}
+
+.swatch-color {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius);
+    flex-shrink: 0;
+    border: 2px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(6, 78, 59, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+    position: relative;
+}
+
+.swatch-info h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1rem;
+    border: none;
+    padding: 0;
+    color: var(--green-dark);
+}
+
+.swatch-info p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.swatch-code {
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.8rem;
+    color: var(--indigo);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+/* ---------- FONT SAMPLE WITH LAYERED BACKGROUND ---------- */
+.font-sample {
+    background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #f0fdf4 50%,
+        #fef3c7 100%
+    );
+    padding: 1.5rem 1.75rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm), var(--shadow-inner);
+    margin-bottom: 1.25rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.font-sample::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(
+        180deg,
+        var(--green) 0%,
+        var(--gold) 50%,
+        var(--terracotta) 100%
+    );
+}
+
+.font-sample .sample-heading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 1.7rem;
+    color: var(--green-dark);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.03em;
+}
+
+.font-sample .sample-subheading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--terracotta-dark);
+    margin-bottom: 0.5rem;
+}
+
+.font-sample .sample-body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.font-sample .sample-caption {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: var(--indigo);
+    font-style: italic;
+    margin-top: 0.6rem;
+    font-weight: 500;
+}
+
+/* ---------- WIREFRAME CARDS WITH HERITAGE ACCENTS ---------- */
+.wireframes {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 1.25rem 0;
+}
+
+.wireframe {
+    background: linear-gradient(180deg, #ffffff 0%, #fefce8 100%);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.wireframe::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        var(--green) 0%,
+        var(--gold) 50%,
+        var(--terracotta) 100%
+    );
+}
+
+.wireframe h3 {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--green-dark);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border: none;
+    padding: 0;
+}
+
+.wireframe svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #ffffff;
+    border-radius: var(--radius);
+    padding: 0.75rem;
+    border: 2px dashed var(--gold);
+}
+
+/* ---------- WIREFRAME SVG STYLES ---------- */
+.wf-box {
+    fill: #ffffff;
+    stroke: #0b6e4f;
+    stroke-width: 2;
+}
+
+.wf-box-filled {
+    fill: #d1fae5;
+    stroke: #0b6e4f;
+    stroke-width: 2;
+}
+
+.wf-box-accent {
+    fill: #d4a017;
+    stroke: #7c2d12;
+    stroke-width: 2;
+}
+
+.wf-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    fill: #064e3b;
+    font-weight: 700;
+}
+
+.wf-label-sm {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    fill: #44403c;
+    font-weight: 500;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (min-width: 640px) {
+    h1 { font-size: 2.4rem; }
+
+    h2 { font-size: 1.3rem; }
+
+    .swatch-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .wireframes {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ---------- FOOTER WITH HERITAGE STRIPE ---------- */
+footer {
+    margin-top: 3.5rem;
+    padding: 2rem 1.5rem 1rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(209, 250, 229, 0.5) 50%,
+        rgba(254, 243, 199, 0.7) 100%
+    );
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    position: relative;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        var(--green) 0%,
+        var(--gold) 50%,
+        var(--terracotta) 100%
+    );
+    border-radius: 4px;
+}
+
+footer::after {
+    content: "◆ ◆ ◆";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-page);
+    padding: 0 0.75rem;
+    color: var(--gold);
+    font-size: 0.7rem;
+    letter-spacing: 0.5em;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nigeria Artifacts Museum</h1>
+        <p class="subtitle">Website Plan — WDD 231 · Lawrence Adekunle David</p>
+    </header>
+
+    <main>
+        <!-- SITE NAME -->
+        <section id="site-name">
+            <h2>Site Name</h2>
+            <div class="intro-card">
+                <p><strong>Nigeria Artifacts Museum</strong></p>
+                <p class="swatch-code">Optional domain: nigeriaartifacts.org</p>
+            </div>
+            <p>
+                This name was chosen because it directly identifies the site's mission — to
+                preserve, showcase, and educate the public about Nigeria's rich cultural heritage.
+                The word "Artifacts" communicates that the site focuses on physical historical
+                objects (bronzes, terracottas, textiles, masks, and traditional tools), while
+                "Museum" signals a curated, educational experience rather than a marketplace.
+                The name is clear, professional, and easily remembered.
+            </p>
+        </section>
+
+        <!-- SITE PURPOSE -->
+        <section id="site-purpose">
+            <h2>Site Purpose</h2>
+            <p>
+                The site serves as a digital gateway to Nigeria's cultural heritage, offering
+                visitors a place to explore, learn about, and engage with artifacts from
+                across Nigeria's many ethnic groups and historical periods. It provides:
+            </p>
+            <ul>
+                <li><strong>Artifact Gallery</strong> — a searchable catalog of artifacts with images, descriptions, origin, and historical context.</li>
+                <li><strong>Virtual Tours</strong> — curated thematic collections (e.g., "Nok Terracottas," "Benin Bronzes," "Igbo-Ukwu Bronzes") that guide visitors through Nigeria's cultural history.</li>
+                <li><strong>Educational Resources</strong> — articles, timelines, and downloadable guides for students, teachers, and researchers.</li>
+                <li><strong>Visit Information</strong> — hours, location, ticket pricing, and accessibility details for in-person visits.</li>
+                <li><strong>Contact &amp; Membership</strong> — a form for donations, memberships, and inquiries from schools and cultural institutions.</li>
+            </ul>
+        </section>
+
+        <!-- SCENARIOS -->
+        <section id="scenarios">
+            <h2>Scenarios</h2>
+            <p>These questions represent typical visitors who will use the site:</p>
+            <ol>
+                <li>
+                    <strong>"I'm a teacher preparing a lesson on pre-colonial Nigerian history — where can I find images and descriptions of Nok terracotta sculptures?"</strong>
+                    <br /><span class="swatch-code">→ Answered by the Artifact Gallery and Educational Resources pages.</span>
+                </li>
+                <li>
+                    <strong>"I'm visiting Lagos next month — what are the museum's opening hours, ticket prices, and location?"</strong>
+                    <br /><span class="swatch-code">→ Answered by the Visit page (hours, pricing, address, map).</span>
+                </li>
+                <li>
+                    <strong>"How can I donate an artifact or support the museum's preservation work?"</strong>
+                    <br /><span class="swatch-code">→ Answered by the Contact &amp; Membership page.</span>
+                </li>
+                <li>
+                    <strong>"What is the historical significance of the Benin Bronzes and where did they originate?"</strong>
+                    <br /><span class="swatch-code">→ Answered by the Virtual Tours and individual artifact detail pages.</span>
+                </li>
+            </ol>
+        </section>
+
+        <!-- COLOR SCHEME -->
+        <section id="color-scheme">
+            <h2>Color Scheme</h2>
+            <p>
+                The palette uses warm, earthy tones inspired by Nigerian soil, terracotta, and
+                traditional textiles. Deep reddish-brown provides a grounded, museum-like
+                foundation, while warm amber accents echo the colors of ancient bronze and clay.
+            </p>
+
+            <div class="swatch-grid">
+                <div class="swatch">
+                    <div class="swatch-color" style="background: #7c2d12;"></div>
+                    <div class="swatch-info">
+                        <h3>Terracotta Brown</h3>
+                        <p class="swatch-code">#7C2D12</p>
+                        <p>Headings, primary buttons, navigation accents, section borders.</p>
+                    </div>
+                </div>
+
+                <div class="swatch">
+                    <div class="swatch-color" style="background: #431407;"></div>
+                    <div class="swatch-info">
+                        <h3>Deep Brown</h3>
+                        <p class="swatch-code">#431407</p>
+                        <p>Body text, footer text, hover states for primary buttons.</p>
+                    </div>
+                </div>
+
+                <div class="swatch">
+                    <div class="swatch-color" style="background: #fed7aa;"></div>
+                    <div class="swatch-info">
+                        <h3>Light Sand</h3>
+                        <p class="swatch-code">#FED7AA</p>
+                        <p>Active nav background, section accents, light overlays.</p>
+                    </div>
+                </div>
+
+                <div class="swatch">
+                    <div class="swatch-color" style="background: #b45309;"></div>
+                    <div class="swatch-info">
+                        <h3>Bronze Accent</h3>
+                        <p class="swatch-code">#B45309</p>
+                        <p>Call-to-action buttons, focus links, premium artifact borders.</p>
+                    </div>
+                </div>
+
+                <div class="swatch">
+                    <div class="swatch-color" style="background: #fdfaf6; border: 1px solid #d6cbb8;"></div>
+                    <div class="swatch-info">
+                        <h3>Page Background</h3>
+                        <p class="swatch-code">#FDFAF6</p>
+                        <p>Warm off-white page background — evokes parchment and gallery walls.</p>
+                    </div>
+                </div>
+
+                <div class="swatch">
+                    <div class="swatch-color" style="background: #57534e;"></div>
+                    <div class="swatch-info">
+                        <h3>Muted Stone</h3>
+                        <p class="swatch-code">#57534E</p>
+                        <p>Secondary text, captions, timestamps, category labels.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                <strong>Contrast:</strong> All foreground/background combinations pass WCAG AA
+                contrast (4.5:1 or better). Deep brown text on off-white and white text on
+                terracotta brown are the primary text pairings.
+            </p>
+        </section>
+
+        <!-- TYPOGRAPHY -->
+        <section id="typography">
+            <h2>Typography</h2>
+            <p>
+                One font family is used throughout the site — <strong>Inter</strong> — with
+                multiple weights to establish hierarchy without introducing inconsistency.
+                Inter's neutral, geometric letterforms let the artifacts themselves be the
+                visual focus while keeping text highly legible.
+            </p>
+
+            <div class="font-sample">
+                <p class="sample-heading">Inter 700 — Heading 1</p>
+                <p class="sample-subheading">Inter 600 — Heading 2 &amp; Section Titles</p>
+                <p class="sample-body">
+                    Inter 400 — Body copy. Used for all paragraph text, form labels, form
+                    inputs, list items, artifact descriptions, and general content across the site.
+                </p>
+                <p class="sample-caption">Inter 400 Italic — Captions, image credits, and notes.</p>
+            </div>
+
+            <h3>Usage Rules</h3>
+            <ul>
+                <li><strong>Inter 700 (Bold)</strong> — Page titles (<code>h1</code>) and hero headings only.</li>
+                <li><strong>Inter 600 (SemiBold)</strong> — Section headings (<code>h2</code>), artifact titles (<code>h3</code>), button labels, navigation links.</li>
+                <li><strong>Inter 400 (Regular)</strong> — Body text, list items, form inputs, artifact metadata, and footer content.</li>
+            </ul>
+        </section>
+
+        <!-- WIREFRAMES -->
+        <section id="wireframes">
+            <h2>Wireframes</h2>
+            <p>
+                The wireframes below illustrate the home-page layout for small (mobile) and
+                larger (desktop/tablet) viewports. Both are black-and-white sketches showing
+                structure, layout, and content hierarchy before adding detailed visual design.
+            </p>
+
+            <div class="wireframes">
+                <!-- SMALL VIEW -->
+                <div class="wireframe">
+                    <h3>Small Viewport (320–639px)</h3>
+                    <svg viewBox="0 0 320 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mobile wireframe of the museum home page">
+                        <!-- Header -->
+                        <rect class="wf-box" x="10" y="10" width="300" height="50" rx="6" />
+                        <text class="wf-label" x="20" y="40">LOGO · MUSEUM NAME</text>
+                        <rect class="wf-box" x="270" y="20" width="30" height="30" rx="4" />
+                        <text class="wf-label-sm" x="273" y="40">☰</text>
+
+                        <!-- Hero -->
+                        <rect class="wf-box-filled" x="10" y="70" width="300" height="130" rx="6" />
+                        <text class="wf-label" x="90" y="125">HERO · FEATURED ARTIFACT</text>
+                        <rect class="wf-box-accent" x="100" y="150" width="120" height="26" rx="4" />
+                        <text class="wf-label-sm" x="130" y="168">EXPLORE GALLERY</text>
+
+                        <!-- Featured Collections -->
+                        <rect class="wf-box" x="10" y="210" width="300" height="130" rx="6" />
+                        <text class="wf-label" x="20" y="230">FEATURED COLLECTIONS</text>
+                        <rect class="wf-box-filled" x="20" y="240" width="80" height="60" rx="4" />
+                        <rect class="wf-box-filled" x="110" y="240" width="80" height="60" rx="4" />
+                        <rect class="wf-box-filled" x="200" y="240" width="80" height="60" rx="4" />
+                        <text class="wf-label-sm" x="35" y="315">Nok · Benin · Igbo</text>
+
+                        <!-- Artifact of the Month -->
+                        <rect class="wf-box" x="10" y="350" width="300" height="110" rx="6" />
+                        <text class="wf-label" x="20" y="370">ARTIFACT OF THE MONTH</text>
+                        <rect class="wf-box-filled" x="20" y="380" width="120" height="70" rx="4" />
+                        <text class="wf-label-sm" x="155" y="400">Image + description</text>
+                        <text class="wf-label-sm" x="155" y="415">Origin · Era · Material</text>
+                        <text class="wf-label-sm" x="155" y="430">Read more →</text>
+
+                        <!-- Visit Info -->
+                        <rect class="wf-box" x="10" y="470" width="300" height="100" rx="6" />
+                        <text class="wf-label" x="20" y="490">VISIT US</text>
+                        <rect class="wf-box-filled" x="20" y="500" width="135" height="60" rx="4" />
+                        <text class="wf-label-sm" x="30" y="525">Hours · Tickets</text>
+                        <rect class="wf-box-filled" x="165" y="500" width="135" height="60" rx="4" />
+                        <text class="wf-label-sm" x="175" y="525">Location · Map</text>
+
+                        <!-- Footer -->
+                        <rect class="wf-box" x="10" y="580" width="300" height="60" rx="6" />
+                        <text class="wf-label-sm" x="20" y="600">CONTACT · NEWSLETTER</text>
+                        <text class="wf-label-sm" x="20" y="618">NAME · WDD 231 · DATE</text>
+
+                        <!-- Extra bottom margin -->
+                        <text class="wf-label-sm" x="20" y="660">© 2025 · Museum</text>
+                    </svg>
+                </div>
+
+                <!-- LARGE VIEW -->
+                <div class="wireframe">
+                    <h3>Large Viewport (640px+)</h3>
+                    <svg viewBox="0 0 640 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Desktop wireframe of the museum home page">
+                        <!-- Header -->
+                        <rect class="wf-box" x="10" y="10" width="620" height="50" rx="6" />
+                        <text class="wf-label" x="20" y="40">LOGO · MUSEUM NAME</text>
+                        <rect class="wf-box-filled" x="340" y="20" width="70" height="30" rx="4" />
+                        <rect class="wf-box-filled" x="420" y="20" width="70" height="30" rx="4" />
+                        <rect class="wf-box-filled" x="500" y="20" width="60" height="30" rx="4" />
+                        <rect class="wf-box-filled" x="570" y="20" width="50" height="30" rx="4" />
+
+                        <!-- Hero -->
+                        <rect class="wf-box-filled" x="10" y="70" width="620" height="140" rx="6" />
+                        <text class="wf-label" x="220" y="130">HERO · FEATURED ARTIFACT</text>
+                        <text class="wf-label-sm" x="245" y="150">Preserving Nigeria's Cultural Heritage</text>
+                        <rect class="wf-box-accent" x="260" y="165" width="120" height="28" rx="4" />
+                        <text class="wf-label-sm" x="285" y="184">EXPLORE GALLERY</text>
+
+                        <!-- Two-column: Collections + Artifact of Month -->
+                        <rect class="wf-box" x="10" y="220" width="360" height="140" rx="6" />
+                        <text class="wf-label" x="20" y="240">FEATURED COLLECTIONS</text>
+                        <rect class="wf-box-filled" x="20" y="250" width="100" height="90" rx="4" />
+                        <text class="wf-label-sm" x="35" y="300">Nok</text>
+                        <rect class="wf-box-filled" x="130" y="250" width="100" height="90" rx="4" />
+                        <text class="wf-label-sm" x="145" y="300">Benin</text>
+                        <rect class="wf-box-filled" x="240" y="250" width="100" height="90" rx="4" />
+                        <text class="wf-label-sm" x="255" y="300">Igbo-Ukwu</text>
+
+                        <rect class="wf-box" x="380" y="220" width="250" height="140" rx="6" />
+                        <text class="wf-label" x="390" y="240">ARTIFACT OF THE MONTH</text>
+                        <rect class="wf-box-filled" x="390" y="250" width="105" height="90" rx="4" />
+                        <text class="wf-label-sm" x="505" y="270">Image + Info</text>
+                        <text class="wf-label-sm" x="505" y="285">Origin · Era</text>
+                        <text class="wf-label-sm" x="505" y="300">Read more →</text>
+
+                        <!-- Three-column: Visit + Education + Contact -->
+                        <rect class="wf-box" x="10" y="370" width="195" height="90" rx="6" />
+                        <text class="wf-label" x="20" y="390">VISIT US</text>
+                        <text class="wf-label-sm" x="20" y="410">Hours · Tickets</text>
+                        <text class="wf-label-sm" x="20" y="425">Location · Map</text>
+
+                        <rect class="wf-box" x="215" y="370" width="195" height="90" rx="6" />
+                        <text class="wf-label" x="225" y="390">EDUCATION</text>
+                        <text class="wf-label-sm" x="225" y="410">Lessons · Resources</text>
+                        <text class="wf-label-sm" x="225" y="425">For teachers</text>
+
+                        <rect class="wf-box" x="420" y="370" width="210" height="90" rx="6" />
+                        <text class="wf-label" x="430" y="390">CONTACT</text>
+                        <text class="wf-label-sm" x="430" y="410">Form · Donations</text>
+                        <text class="wf-label-sm" x="430" y="425">Newsletter</text>
+
+                        <!-- Footer -->
+                        <rect class="wf-box" x="10" y="470" width="300" height="20" rx="3" />
+                        <text class="wf-label-sm" x="20" y="484">NAME · WDD 231 · DATE</text>
+                        <rect class="wf-box" x="330" y="470" width="300" height="20" rx="3" />
+                        <text class="wf-label-sm" x="340" y="484">COPYRIGHT · SOCIAL · LINKS</text>
+                    </svg>
+                </div>
+            </div>
+
+            <p class="swatch-code" style="text-align: center; margin-top: 1rem;">
+                Wireframes show structure only — final colors, fonts, and images are added in the development phase.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Lawrence Adekunle David · WDD 231 – Web Frontend Development I</p>
+        <p>&copy; 2025 Nigeria Artifacts Museum Site Plan</p>
+    </footer>
+</body>
+</html>
