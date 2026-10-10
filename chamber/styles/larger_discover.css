@@ -1,0 +1,188 @@
+/* ============================================================
+   LARGER_DISCOVER.CSS — Responsive layouts for Discover page
+   Breakpoints match larger.css: 640px, 900px, 1024px
+   Base (mobile) styles live in discover.css
+   ============================================================ */
+
+/* ============================================================
+   MEDIUM SCREEN — 640px and up: 2-column grid
+   ============================================================ */
+@media (min-width: 640px) {
+    .places-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 320px 320px 320px 320px 320px;
+        grid-template-areas:
+            "card1 card1"
+            "card2 card3"
+            "card4 card5"
+            "card6 card7"
+            "card8 card8";
+        gap: var(--space);
+    }
+
+    /* Every card fills its grid row exactly */
+    .places-grid .place-card {
+        height: 100%;
+    }
+
+    /* Featured cards (span 2 columns) go horizontal */
+    .places-grid .card-1,
+    .places-grid .card-8 {
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-md);
+        padding: var(--space) var(--space-md);
+    }
+
+    .places-grid .card-1 h2,
+    .places-grid .card-8 h2 {
+        font-size: 1.4rem;
+        min-height: auto;
+    }
+
+    /* List view: bigger image board on tablet */
+    .places-list .place-card figure {
+        flex: 0 0 280px;
+        width: 280px;
+        height: 187px;
+    }
+}
+
+/* ============================================================
+   LARGE SCREEN — 900px and up: 3-column grid
+   ============================================================ */
+@media (min-width: 900px) {
+    .places-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 320px 320px 320px;
+        grid-template-areas:
+            "card1 card1 card2"
+            "card3 card4 card5"
+            "card6 card7 card8";
+        gap: var(--space);
+    }
+
+    /* Every card fills its grid row */
+    .places-grid .place-card {
+        height: 100%;
+    }
+
+    /* Only card 1 stays horizontal at this size */
+    .places-grid .card-1 {
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-md);
+        padding: var(--space) var(--space-md);
+    }
+
+    /* Reset card 8 back to vertical at 3-column */
+    .places-grid .card-8 {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: var(--space);
+    }
+
+    .places-grid .card-8 h2 {
+        font-size: 1.05rem;
+        min-height: 2.6em;
+    }
+}
+
+/* ============================================================
+   EXTRA LARGE — 1024px and up: 4-column magazine grid
+   ============================================================ */
+@media (min-width: 1024px) {
+    .places-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 320px 320px 320px;
+        grid-template-areas:
+            "card1 card1 card2 card3"
+            "card4 card5 card5 card6"
+            "card7 card8 card8 card8";
+        gap: var(--space-md);
+    }
+
+    /* Every card fills its grid row */
+    .places-grid .place-card {
+        height: 100%;
+    }
+
+    /* Featured cards (span 2+ columns) go horizontal */
+    .places-grid .card-1,
+    .places-grid .card-5,
+    .places-grid .card-8 {
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-md);
+        padding: var(--space) var(--space-md);
+    }
+
+    /* Featured headings stay large */
+    .places-grid .card-1 h2,
+    .places-grid .card-5 h2,
+    .places-grid .card-8 h2 {
+        font-size: 1.4rem;
+        min-height: auto;
+    }
+
+    /* Compact stacked cards use tighter typography */
+    .places-grid .card-2,
+    .places-grid .card-3,
+    .places-grid .card-4,
+    .places-grid .card-6,
+    .places-grid .card-7 {
+        padding: 0.85rem 1rem;
+        gap: 0.5rem;
+    }
+
+    .places-grid .card-2 h2,
+    .places-grid .card-3 h2,
+    .places-grid .card-4 h2,
+    .places-grid .card-6 h2,
+    .places-grid .card-7 h2 {
+        font-size: 0.95rem;
+        min-height: 2.4em;
+    }
+
+    .places-grid .card-2 p,
+    .places-grid .card-3 p,
+    .places-grid .card-4 p,
+    .places-grid .card-6 p,
+    .places-grid .card-7 p {
+        font-size: 0.78rem;
+        -webkit-line-clamp: 3;
+    }
+
+    .places-grid .card-2 address,
+    .places-grid .card-3 address,
+    .places-grid .card-4 address,
+    .places-grid .card-6 address,
+    .places-grid .card-7 address {
+        font-size: 0.72rem;
+    }
+
+    /* Image hover — large screens only (per rubric) */
+    .places-grid .place-card img:hover {
+        transform: scale(1.08);
+        filter: saturate(1.3) brightness(1.05);
+    }
+}
+
+/* ============================================================
+   REDUCED MOTION — respect user preference
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    .place-card,
+    .place-card img {
+        transition: none;
+    }
+
+    .place-card:hover {
+        transform: none;
+    }
+
+    .place-card img:hover {
+        transform: none;
+        filter: none;
+    }
+}
