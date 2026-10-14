@@ -1,0 +1,152 @@
+[
+    {
+        "id": 1,
+        "name": "Jollof Rice",
+        "region": "Nationwide",
+        "category": "Rice",
+        "price": 3500,
+        "description": "Smoky, spicy one-pot rice cooked with tomatoes, peppers, and a blend of Nigerian spices.",
+        "image": "jollof.jpg",
+        "featured": true
+    },
+    {
+        "id": 2,
+        "name": "Egusi Soup",
+        "region": "Yoruba",
+        "category": "Soups",
+        "price": 4000,
+        "description": "Rich melon-seed soup with spinach, palm oil, and assorted meat or fish.",
+        "image": "egusi.jpg",
+        "featured": true
+    },
+    {
+        "id": 3,
+        "name": "Suya",
+        "region": "Hausa",
+        "category": "Grills",
+        "price": 2500,
+        "description": "Spicy grilled skewered beef coated in groundnut and spice rub.",
+        "image": "suya.jpg",
+        "featured": true
+    },
+    {
+        "id": 4,
+        "name": "Pounded Yam",
+        "region": "Yoruba",
+        "category": "Swallow",
+        "price": 1500,
+        "description": "Smooth, stretchy dough made from pounded yam tubers, served with soup.",
+        "image": "pounded-yam.jpg",
+        "featured": false
+    },
+    {
+        "id": 5,
+        "name": "Pepper Soup",
+        "region": "Nationwide",
+        "category": "Soups",
+        "price": 3500,
+        "description": "Light, spicy broth with goat meat or catfish, seasoned with local herbs.",
+        "image": "pepper-soup.jpg",
+        "featured": false
+    },
+    {
+        "id": 6,
+        "name": "Puff Puff",
+        "region": "Nationwide",
+        "category": "Snacks",
+        "price": 500,
+        "description": "Deep-fried sweet dough balls — crispy outside, fluffy inside.",
+        "image": "puff-puff.jpg",
+        "featured": false
+    },
+    {
+        "id": 7,
+        "name": "Akara",
+        "region": "Yoruba",
+        "category": "Snacks",
+        "price": 600,
+        "description": "Fried bean cakes made from peeled black-eyed peas, spiced with onions and peppers.",
+        "image": "akara.jpg",
+        "featured": false
+    },
+    {
+        "id": 8,
+        "name": "Fried Rice",
+        "region": "Nationwide",
+        "category": "Rice",
+        "price": 3500,
+        "description": "Nigerian-style fried rice with mixed vegetables, liver, and shrimp.",
+        "image": "fried-rice.jpg",
+        "featured": false
+    },
+    {
+        "id": 9,
+        "name": "Efo Riro",
+        "region": "Yoruba",
+        "category": "Soups",
+        "price": 3800,
+        "description": "Rich spinach stew with palm oil, locust beans, and assorted meat.",
+        "image": "efo-riro.jpg",
+        "featured": false
+    },
+    {
+        "id": 10,
+        "name": "Moin Moin",
+        "region": "Yoruba",
+        "category": "Snacks",
+        "price": 800,
+        "description": "Steamed bean pudding made from blended black-eyed peas with peppers and fish.",
+        "image": "moin-moin.jpg",
+        "featured": false
+    },
+    {
+        "id": 11,
+        "name": "Ofada Rice",
+        "region": "Yoruba",
+        "category": "Rice",
+        "price": 3000,
+        "description": "Unpolished local rice served with a rich, spicy ayamase pepper stew.",
+        "image": "ofada-rice.jpg",
+        "featured": false
+    },
+    {
+        "id": 12,
+        "name": "Boli",
+        "region": "Yoruba",
+        "category": "Snacks",
+        "price": 700,
+        "description": "Roasted plantain served with spicy groundnut pepper sauce.",
+        "image": "boli.jpg",
+        "featured": false
+    },
+    {
+        "id": 13,
+        "name": "Eba",
+        "region": "Nationwide",
+        "category": "Swallow",
+        "price": 1200,
+        "description": "Cassava dough (garri) served with soup — a staple Nigerian swallow.",
+        "image": "eba.jpg",
+        "featured": false
+    },
+    {
+        "id": 14,
+        "name": "Asun",
+        "region": "Yoruba",
+        "category": "Grills",
+        "price": 2800,
+        "description": "Spicy smoked goat meat, diced and tossed with peppers and onions.",
+        "image": "asun.jpg",
+        "featured": false
+    },
+    {
+        "id": 15,
+        "name": "Chapman",
+        "region": "Nationwide",
+        "category": "Drinks",
+        "price": 1500,
+        "description": "Classic Nigerian mocktail with citrus, grenadine, and bitters.",
+        "image": "chapman.jpg",
+        "featured": false
+    }
+]

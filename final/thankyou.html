@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thank you for joining Lagos Eats — here's a summary of your submission.">
+    <meta name="author" content="Lawrence Adekunle David">
+    <meta name="theme-color" content="#b91c1c">
+
+    <title>Thank You | Lagos Eats</title>
+
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/thankyou.js" defer></script>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo" aria-label="Lagos Eats home">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="48" height="48" aria-hidden="true">
+                <rect width="100" height="100" rx="12" fill="#b91c1c"/>
+                <text x="50" y="68" font-family="Inter" font-size="46" fill="#fff" text-anchor="middle" font-weight="600">LE</text>
+            </svg>
+            <span class="site-title">
+                <span class="site-name">Lagos Eats</span>
+                <span class="site-tagline">Taste of Nigeria</span>
+            </span>
+        </a>
+
+        <button id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <nav id="primary-nav" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dishes.html">Dishes</a></li>
+                <li><a href="join.html">Join</a></li>
+                <li><a href="attributions.html">Attributions</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="thankyou-main">
+        <h1>Thank You!</h1>
+        <p class="intro">
+            Your subscription has been received. Here's a summary of your submission:
+        </p>
+
+        <dl id="submission-summary" class="submission-summary">
+            <!-- Populated by thankyou.js -->
+        </dl>
+
+        <p class="thankyou-note">
+            We'll email you at the address you provided with your first recipe this Friday.
+        </p>
+
+        <a href="index.html" class="cta-button">Return Home</a>
+    </main>
+
+    <footer>
+        <div class="footer-contact">
+            <h2>Contact Us</h2>
+            <address>
+                123 Broad Street<br>
+                Lagos Island, Lagos State<br>
+                Nigeria<br>
+                <a href="tel:+2348012345678">+234 801 234 5678</a><br>
+                <a href="mailto:hello@lagoseats.org">hello@lagoseats.org</a>
+            </address>
+        </div>
+
+        <div class="footer-dev">
+            <p>Lawrence Adekunle David</p>
+            <p>WDD 231 – Web Frontend Development I</p>
+            <p id="lastModified">Last Modified: </p>
+            <p id="copyright">&copy; <span id="currentyear"></span> Lagos Eats</p>
+        </div>
+    </footer>
+</body>
+</html>

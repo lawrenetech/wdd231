@@ -1,0 +1,227 @@
+/* ============================================================
+   MODALS.CSS — Styles for <dialog> modals across the site
+   Used on: join.html (benefit modals), dishes.html (dish details)
+   Base dialog behavior is controlled by JavaScript showModal().
+   ============================================================ */
+
+/* ---------- THE DIALOG ELEMENT ---------- */
+dialog {
+    /* Remove default browser border and reset box */
+    border: none;
+    padding: 0;
+    margin: auto;
+
+    /* Size and shape */
+    max-width: 520px;
+    width: calc(100% - 2rem);
+    max-height: 90vh;
+    overflow-y: auto;
+
+    /* Visual style */
+    background: #ffffff;
+    color: #1c1917;
+    border-radius: 16px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+
+    /* Smooth entry */
+    animation: modalFadeIn 0.25s ease-out;
+}
+
+/* ---------- THE BACKDROP (area behind the dialog) ---------- */
+dialog::backdrop {
+    background: rgba(28, 25, 23, 0.65);
+    backdrop-filter: blur(2px);
+    animation: backdropFadeIn 0.2s ease-out;
+}
+
+/* ---------- DIALOG HEADING ---------- */
+dialog h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #b91c1c;
+    margin: 0 0 1rem 0;
+    padding: 0;
+    border: none;
+    line-height: 1.25;
+}
+
+/* ---------- DIALOG BODY TEXT ---------- */
+dialog p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #1c1917;
+    margin: 0 0 0.75rem 0;
+}
+
+dialog p:last-of-type {
+    margin-bottom: 1rem;
+}
+
+/* ---------- DIALOG LISTS ---------- */
+dialog ul,
+dialog ol {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin: 0 0 1rem 0;
+    color: #57534e;
+}
+
+dialog ol {
+    list-style: decimal;
+}
+
+dialog li {
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+dialog li::marker {
+    color: #b91c1c;
+    font-weight: 700;
+}
+
+/* ---------- IMAGES INSIDE MODAL ---------- */
+dialog figure {
+    margin: 0 0 1rem 0;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #fef3c7;
+}
+
+dialog figure img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    display: block;
+}
+
+/* ---------- STRONG TEXT ---------- */
+dialog strong {
+    color: #7f1d1d;
+    font-weight: 600;
+}
+
+/* ============================================================
+   DIALOG CONTENT PADDING
+   Inner content is wrapped so we can scroll long content while
+   keeping the padding on the container.
+   ============================================================ */
+dialog > * {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+dialog > *:first-child {
+    padding-top: 1.5rem;
+}
+
+dialog > *:last-child {
+    padding-bottom: 1.5rem;
+}
+
+/* ============================================================
+   CLOSE BUTTON
+   ============================================================ */
+.close-modal {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.6rem 1.35rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: #b91c1c;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.close-modal:hover {
+    background: #7f1d1d;
+    transform: translateY(-1px);
+}
+
+.close-modal:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 2px;
+}
+
+/* ============================================================
+   SPECIFIC MODAL VARIANTS
+   ============================================================ */
+
+/* Info modals (benefit explanations on join.html) */
+dialog.info-modal {
+    border-top: 6px solid #f59e0b;
+}
+
+/* Dish detail modals (from dishes.html) */
+dialog.dish-modal {
+    border-top: 6px solid #b91c1c;
+}
+
+dialog.dish-modal h2 {
+    font-size: 1.35rem;
+    margin-bottom: 0.75rem;
+}
+
+dialog.dish-modal figure {
+    margin-bottom: 1rem;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes backdropFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE — WIDER MODALS ON LARGER SCREENS
+   ============================================================ */
+@media (min-width: 640px) {
+    dialog {
+        max-width: 560px;
+        width: 90%;
+    }
+
+    dialog h2 {
+        font-size: 1.4rem;
+    }
+}
+
+/* ============================================================
+   ACCESSIBILITY — RESPECT REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    dialog,
+    dialog::backdrop {
+        animation: none;
+    }
+
+    .close-modal {
+        transition: none;
+    }
+
+    .close-modal:hover {
+        transform: none;
+    }
+}

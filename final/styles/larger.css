@@ -1,0 +1,93 @@
+/* ============================================================
+   LARGER.CSS — Lagos Eats responsive layouts
+   ============================================================ */
+
+@media (min-width: 640px) {
+    #hamburger { display: none; }
+
+    #primary-nav {
+        display: flex !important;
+        width: auto;
+        margin-top: 0;
+    }
+
+    #primary-nav ul {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+
+    #primary-nav a {
+        display: inline-block;
+        width: auto;
+        min-height: auto;
+        padding: 0.5rem 0.75rem;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        border-radius: 0;
+    }
+
+    #primary-nav a:hover,
+    #primary-nav a.active {
+        background: transparent;
+        border-left: none;
+        border-bottom-color: var(--primary);
+    }
+
+    h1 { font-size: 2.2rem; }
+
+    .hero-overlay h1 { font-size: 2.2rem; }
+
+    .dishes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .why-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .join-layout {
+        grid-template-columns: 1.4fr 1fr;
+        align-items: start;
+    }
+
+    .membership-cards {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .footer-contact,
+    .footer-dev { flex: 1; }
+
+    .footer-dev { text-align: right; }
+
+    .submission-summary {
+        grid-template-columns: max-content 1fr;
+    }
+}
+
+@media (min-width: 900px) {
+    .dishes-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    body { padding: 0 2.5rem; }
+
+    .dishes-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

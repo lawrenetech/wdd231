@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join the Lagos Eats community — weekly recipes, new restaurant spotlights, and member discounts.">
+    <meta name="author" content="Lawrence Adekunle David">
+    <meta name="theme-color" content="#b91c1c">
+
+    <title>Join | Lagos Eats</title>
+
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/join.js" type="module"></script>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo" aria-label="Lagos Eats home">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="48" height="48" aria-hidden="true">
+                <rect width="100" height="100" rx="12" fill="#b91c1c"/>
+                <text x="50" y="68" font-family="Inter" font-size="46" fill="#fff" text-anchor="middle" font-weight="600">LE</text>
+            </svg>
+            <span class="site-title">
+                <span class="site-name">Lagos Eats</span>
+                <span class="site-tagline">Taste of Nigeria</span>
+            </span>
+        </a>
+
+        <button id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <nav id="primary-nav" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dishes.html">Dishes</a></li>
+                <li><a href="join.html" class="active" aria-current="page">Join</a></li>
+                <li><a href="attributions.html">Attributions</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Join Lagos Eats</h1>
+        <p class="intro">
+            Sign up for our newsletter and unlock member perks — weekly recipes,
+            restaurant spotlights, and exclusive discounts.
+        </p>
+
+        <div class="join-layout">
+            <form action="thankyou.html" method="get" class="join-form">
+                <label>
+                    First Name *
+                    <input type="text" name="firstName" autocomplete="given-name" required>
+                </label>
+
+                <label>
+                    Last Name *
+                    <input type="text" name="lastName" autocomplete="family-name" required>
+                </label>
+
+                <label>
+                    Email Address *
+                    <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+                </label>
+
+                <label>
+                    Mobile Phone
+                    <input type="tel" name="phone" autocomplete="tel">
+                </label>
+
+                <label>
+                    Favorite Cuisine *
+                    <select name="cuisine" required>
+                        <option value="" disabled selected>Select one…</option>
+                        <option value="yoruba">Yoruba</option>
+                        <option value="igbo">Igbo</option>
+                        <option value="hausa">Hausa</option>
+                        <option value="mixed">Mixed / All</option>
+                    </select>
+                </label>
+
+                <label>
+                    Anything else you'd like to tell us?
+                    <textarea name="message" rows="4"></textarea>
+                </label>
+
+                <input type="hidden" name="timestamp" id="timestamp">
+
+                <input type="submit" value="Join Lagos Eats" class="submit-btn">
+            </form>
+
+            <aside class="membership-cards" aria-label="Membership benefits">
+                <div class="benefit-card">
+                    <h2>Weekly Recipes</h2>
+                    <p>New Nigerian recipes delivered every Friday.</p>
+                    <button type="button" class="modal-link" data-modal="modal-recipes">Learn More</button>
+                </div>
+
+                <div class="benefit-card">
+                    <h2>Restaurant Spotlights</h2>
+                    <p>Discover family-owned spots across Lagos.</p>
+                    <button type="button" class="modal-link" data-modal="modal-spots">Learn More</button>
+                </div>
+
+                <div class="benefit-card">
+                    <h2>Member Discounts</h2>
+                    <p>Save on meals at partner restaurants.</p>
+                    <button type="button" class="modal-link" data-modal="modal-discounts">Learn More</button>
+                </div>
+            </aside>
+        </div>
+
+        <dialog id="modal-recipes" class="info-modal">
+            <h2>Weekly Recipes</h2>
+            <p>Every Friday you'll receive:</p>
+            <ul>
+                <li>One traditional recipe with step-by-step instructions</li>
+                <li>Regional variations from across Nigeria</li>
+                <li>Shopping list and prep tips</li>
+            </ul>
+            <button class="close-modal">Close</button>
+        </dialog>
+
+        <dialog id="modal-spots" class="info-modal">
+            <h2>Restaurant Spotlights</h2>
+            <p>Discover hidden gems:</p>
+            <ul>
+                <li>Family-owned restaurants featured weekly</li>
+                <li>Full menus, addresses, and price ranges</li>
+                <li>Chef interviews and story features</li>
+            </ul>
+            <button class="close-modal">Close</button>
+        </dialog>
+
+        <dialog id="modal-discounts" class="info-modal">
+            <h2>Member Discounts</h2>
+            <p>Save every time you eat out:</p>
+            <ul>
+                <li>10% off at 30+ partner restaurants</li>
+                <li>Buy-one-get-one offers monthly</li>
+                <li>Priority booking at popular spots</li>
+            </ul>
+            <button class="close-modal">Close</button>
+        </dialog>
+    </main>
+
+    <footer>
+        <div class="footer-contact">
+            <h2>Contact Us</h2>
+            <address>
+                123 Broad Street<br>
+                Lagos Island, Lagos State<br>
+                Nigeria<br>
+                <a href="tel:+2348012345678">+234 801 234 5678</a><br>
+                <a href="mailto:hello@lagoseats.org">hello@lagoseats.org</a>
+            </address>
+        </div>
+
+        <div class="footer-dev">
+            <p>Lawrence Adekunle David</p>
+            <p>WDD 231 – Web Frontend Development I</p>
+            <p id="lastModified">Last Modified: </p>
+            <p id="copyright">&copy; <span id="currentyear"></span> Lagos Eats</p>
+        </div>
+    </footer>
+</body>
+</html>
